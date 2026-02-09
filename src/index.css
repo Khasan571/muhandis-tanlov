@@ -1,0 +1,217 @@
+/* ===== Dark Blue Glass-morphism Theme ===== */
+:root {
+  --bg-primary: #060B18;
+  --bg-secondary: #0C1425;
+  --bg-card: rgba(12, 22, 45, 0.65);
+  --accent: #3B82F6;
+  --accent-light: #60A5FA;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --accent-glow-strong: rgba(59, 130, 246, 0.3);
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+  --text: #FFFFFF;
+  --text-muted: rgba(255,255,255,0.6);
+  --text-light: rgba(255,255,255,0.35);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --transition: 0.3s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+/* ========================================
+   Bokeh / Glowing dots background decoration
+   ======================================== */
+.sec::before,
+.sec::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Large soft bokeh blobs */
+.sec::before {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+  top: -80px; right: -60px;
+  filter: blur(40px);
+}
+.sec::after {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%);
+  bottom: -40px; left: -40px;
+  filter: blur(30px);
+}
+
+/* Starfield / scattered dots overlay on sections */
+.sec-dark,
+.sec-darker {
+  background-image:
+    /* Tiny bright stars */
+    radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 25% 55%, rgba(255,255,255,0.12), transparent),
+    radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.18), transparent),
+    radial-gradient(1px 1px at 55% 35%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 10% 75%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 65% 90%, rgba(255,255,255,0.12), transparent),
+    radial-gradient(1px 1px at 35% 10%, rgba(255,255,255,0.18), transparent),
+    /* Medium soft dots */
+    radial-gradient(3px 3px at 20% 30%, rgba(255,255,255,0.08), transparent),
+    radial-gradient(3px 3px at 75% 25%, rgba(255,255,255,0.06), transparent),
+    radial-gradient(4px 4px at 50% 70%, rgba(59,130,246,0.1), transparent),
+    radial-gradient(3px 3px at 85% 65%, rgba(255,255,255,0.07), transparent),
+    radial-gradient(3px 3px at 30% 85%, rgba(59,130,246,0.08), transparent),
+    radial-gradient(4px 4px at 60% 15%, rgba(255,255,255,0.06), transparent),
+    radial-gradient(3px 3px at 5% 50%, rgba(255,255,255,0.05), transparent),
+    radial-gradient(3px 3px at 95% 80%, rgba(59,130,246,0.07), transparent),
+    /* Large bokeh spots */
+    radial-gradient(80px 80px at 10% 20%, rgba(59,130,246,0.03), transparent),
+    radial-gradient(120px 120px at 80% 70%, rgba(99,102,241,0.025), transparent),
+    radial-gradient(100px 100px at 50% 10%, rgba(59,130,246,0.02), transparent),
+    radial-gradient(90px 90px at 30% 80%, rgba(147,197,253,0.02), transparent),
+    radial-gradient(70px 70px at 90% 30%, rgba(59,130,246,0.025), transparent);
+}
+.sec-dark {
+  background-color: var(--bg-primary);
+}
+.sec-darker {
+  background-color: var(--bg-secondary);
+}
+
+/* Section spacing */
+.sec { padding: 110px 0; position: relative; overflow: hidden; }
+
+/* Section header */
+.sec-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.sec-label::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+.sec-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+.sec-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glass card base */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: var(--transition);
+  white-space: nowrap;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+.btn-primary:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59,130,246,0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  border-radius: 100px;
+  border: 1.5px solid var(--glass-border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: var(--transition);
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow utilities */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(59,130,246,0.12), 0 0 120px rgba(59,130,246,0.06);
+}
+
+@media (max-width: 768px) {
+  .sec { padding: 80px 0; }
+  .container { padding: 0 20px; }
+}

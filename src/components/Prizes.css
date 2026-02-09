@@ -1,0 +1,103 @@
+/* Prizes — glass cards with glow accents */
+.prizes { background: #ffffff !important; background-image: none !important; }
+.prizes .sec-label { color: var(--accent); }
+.prizes .sec-heading { color: #0f172a; }
+.prizes .glass {
+  background: #060B18;
+  border-color: rgba(255,255,255,0.08);
+}
+.prizes__header { text-align: center; margin-bottom: 56px; }
+.prizes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.prizes__card {
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.prizes__card:hover { transform: translateY(-8px); }
+
+/* Glow effect behind card */
+.prizes__glow {
+  position: absolute;
+  top: -40%; left: -20%;
+  width: 140%; height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.prizes__card:hover .prizes__glow { opacity: 1; }
+
+.prizes__rank {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 20px;
+  opacity: 0.12;
+}
+
+.prizes__medal {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  transition: transform 0.3s ease;
+}
+.prizes__card:hover .prizes__medal { transform: scale(1.1); }
+.prizes__medal svg { width: 32px; height: 32px; }
+
+.prizes__card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.prizes__card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.prizes__tag {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Gold */
+.prizes__card--gold .prizes__rank { color: #F59E0B; }
+.prizes__card--gold .prizes__medal { background: rgba(245,158,11,0.12); }
+.prizes__card--gold .prizes__medal svg { stroke: #F59E0B; }
+.prizes__card--gold .prizes__tag { background: rgba(245,158,11,0.12); color: #F59E0B; }
+.prizes__card--gold .prizes__glow { background: radial-gradient(circle, rgba(245,158,11,0.08), transparent 60%); }
+.prizes__card--gold:hover { box-shadow: 0 16px 60px rgba(245,158,11,0.1); }
+
+/* Silver */
+.prizes__card--silver .prizes__rank { color: #94A3B8; }
+.prizes__card--silver .prizes__medal { background: rgba(148,163,184,0.12); }
+.prizes__card--silver .prizes__medal svg { stroke: #94A3B8; }
+.prizes__card--silver .prizes__tag { background: rgba(148,163,184,0.12); color: #94A3B8; }
+.prizes__card--silver .prizes__glow { background: radial-gradient(circle, rgba(148,163,184,0.06), transparent 60%); }
+.prizes__card--silver:hover { box-shadow: 0 16px 60px rgba(148,163,184,0.08); }
+
+/* Bronze */
+.prizes__card--bronze .prizes__rank { color: #D97706; }
+.prizes__card--bronze .prizes__medal { background: rgba(217,119,6,0.12); }
+.prizes__card--bronze .prizes__medal svg { stroke: #D97706; }
+.prizes__card--bronze .prizes__tag { background: rgba(217,119,6,0.12); color: #D97706; }
+.prizes__card--bronze .prizes__glow { background: radial-gradient(circle, rgba(217,119,6,0.06), transparent 60%); }
+.prizes__card--bronze:hover { box-shadow: 0 16px 60px rgba(217,119,6,0.08); }
+
+@media (max-width: 768px) {
+  .prizes__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}

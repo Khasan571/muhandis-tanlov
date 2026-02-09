@@ -1,0 +1,91 @@
+/* Timeline — horizontal step cards */
+.tl { position: relative; overflow: hidden; background: #ffffff !important; background-image: none !important; }
+.tl .sec-label { color: var(--accent); }
+.tl .sec-heading { color: #0f172a; }
+.tl .sec-text { color: #64748b; }
+.tl .glass {
+  background: #060B18;
+  border-color: rgba(255,255,255,0.08);
+}
+.tl__bg-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.06);
+  filter: blur(100px);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.tl__header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
+
+.tl__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.tl__step {
+  padding: 32px 24px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+}
+.tl__step:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(59,130,246,0.08); }
+
+.tl__step-icon {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-glow);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.tl__step-icon svg { width: 24px; height: 24px; stroke: var(--accent-light); }
+
+.tl__step-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: rgba(59,130,246,0.15);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.tl__step h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.tl__step p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Connector arrow between steps */
+.tl__connector {
+  display: none;
+}
+@media (min-width: 1025px) {
+  .tl__connector {
+    display: block;
+    position: absolute;
+    right: -18px;
+    top: 42px;
+    z-index: 2;
+  }
+  .tl__connector svg {
+    width: 20px; height: 20px;
+    stroke: var(--text-light);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tl__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .tl__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}

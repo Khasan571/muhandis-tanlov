@@ -1,0 +1,201 @@
+/* Stats — Uzbekistan map + statistics panel */
+.stats__head { margin-bottom: 56px; text-align: center; }
+.stats__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.stats__title--accent {
+  background: linear-gradient(135deg, #3B82F6, #60A5FA, #93C5FD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.stats__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ---- Map ---- */
+.stats__map-wrap { position: relative; padding-top: 120px; }
+.stats__map-container { position: relative; }
+.stats__map { width: 100%; height: auto; }
+
+.stats__region {
+  fill: rgba(59,130,246,0.2);
+  stroke: rgba(255,255,255,0.15);
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: fill 0.3s ease, filter 0.3s ease;
+}
+.stats__region:hover,
+.stats__region.active {
+  fill: rgba(59,130,246,0.5);
+  filter: drop-shadow(0 0 12px rgba(59,130,246,0.4));
+}
+.stats__region--city {
+  fill: var(--accent);
+  stroke: #fff;
+  stroke-width: 2;
+}
+.stats__region--city:hover,
+.stats__region--city.active {
+  fill: #60A5FA;
+  filter: drop-shadow(0 0 16px rgba(59,130,246,0.6));
+}
+
+/* Tooltip */
+.stats__tooltip {
+  position: absolute;
+  bottom: 16px; left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  z-index: 5;
+  animation: fadeUp 0.2s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.stats__tooltip-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.stats__tooltip-val {
+  color: var(--accent-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ---- Panel ---- */
+.stats__panel-head { margin-bottom: 28px; }
+.stats__panel-head h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.stats__total {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+.stats__counter {
+  font-weight: 800;
+  color: var(--text);
+  font-size: inherit;
+}
+.stats__total .stats__counter {
+  font-size: 1.5rem;
+  color: var(--accent-light);
+  margin-left: 4px;
+}
+
+/* Summary cards */
+.stats__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.stats__card {
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.stats__card:hover { transform: translateY(-4px); }
+.stats__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+.stats__card--blue::before { background: #3B82F6; }
+.stats__card--green::before { background: #22C55E; }
+.stats__card--purple::before { background: #A855F7; }
+
+.stats__card-num {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.stats__card--blue .stats__card-num { color: #60A5FA; }
+.stats__card--green .stats__card-num { color: #4ADE80; }
+.stats__card--purple .stats__card-num { color: #C084FC; }
+
+.stats__card-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.stats__card-sub {
+  color: var(--text-light);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+/* Bar chart */
+.stats__bars { margin-top: 8px; }
+.stats__bars h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+.stats__bar-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 44px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.stats__bar-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stats__bar-track {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.stats__bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1.2s ease;
+  box-shadow: 0 0 10px rgba(59,130,246,0.2);
+}
+.stats__bar-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: right;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .stats__layout { grid-template-columns: 1fr; }
+  .stats__map-wrap { max-width: 500px; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+  .stats__cards { grid-template-columns: 1fr; max-width: 280px; }
+  .stats__bar-row { grid-template-columns: 100px 1fr 36px; gap: 8px; }
+}

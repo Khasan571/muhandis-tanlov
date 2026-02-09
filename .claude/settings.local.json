@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netsh wlan show:*)",
+      "Bash(ipconfig:*)",
+      "Bash(findstr:*)",
+      "WebFetch(domain:tryhackme.com)",
+      "Bash(systeminfo:*)",
+      "Bash(wmic logicaldisk get:*)",
+      "Bash(powershell \"Get-WmiObject Win32_LogicalDisk | Select-Object DeviceID, @{n=''Size\\(GB\\)'';e={[math]::Round\\($_Size/1GB,2\\)}}, @{n=''FreeSpace\\(GB\\)'';e={[math]::Round\\($_FreeSpace/1GB,2\\)}}\")",
+      "Bash(powershell \"Get-PSDrive -PSProvider FileSystem | Format-Table Name, Used, Free -AutoSize\")",
+      "WebFetch(domain:www.virtualbox.org)",
+      "WebFetch(domain:www.kali.org)",
+      "WebFetch(domain:muhandis.edu.uz)",
+      "WebSearch",
+      "WebFetch(domain:web.archive.org)",
+      "Bash(dir:*)",
+      "WebFetch(domain:www.jtsu.uz)",
+      "WebFetch(domain:talimxabarlari.uz)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(del:*)",
+      "Bash(timeout:*)",
+      "Bash(npx vite build:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:unpkg.com)",
+      "WebFetch(domain:simplemaps.com)",
+      "Bash(npx vite:*)",
+      "Bash(gh auth status:*)",
+      "Bash(where:*)",
+      "Bash(git --version)",
+      "Bash(winget install:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth login --web -p https)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo create:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Muhandislik tanlovi landing page\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}

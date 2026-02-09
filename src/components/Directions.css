@@ -1,0 +1,82 @@
+/* Directions — glass service cards */
+.dirs__header { margin-bottom: 56px; }
+.dirs__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.dirs__card {
+  padding: 28px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.dirs__card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dirs__card:hover::after { opacity: 1; }
+.dirs__card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(59,130,246,0.08); }
+
+.dirs__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.dirs__tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.dirs__arrow-btn {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+.dirs__arrow-btn svg { width: 14px; height: 14px; stroke: var(--text-light); }
+.dirs__card:hover .dirs__arrow-btn { background: var(--accent-glow); border-color: rgba(59,130,246,0.3); }
+.dirs__card:hover .dirs__arrow-btn svg { stroke: var(--accent); }
+
+.dirs__icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-glow);
+  border-radius: 14px;
+  margin-bottom: 20px;
+  transition: background 0.3s ease;
+}
+.dirs__card:hover .dirs__icon { background: var(--accent-glow-strong); }
+.dirs__icon svg { width: 28px; height: 28px; stroke: var(--accent-light); }
+
+.dirs__card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.dirs__card p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .dirs__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .dirs__grid { grid-template-columns: 1fr; }
+}
