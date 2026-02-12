@@ -47,6 +47,20 @@
 }
 .nav__links a:hover::after { width: 100%; }
 
+.nav__theme {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.nav__theme:hover { color: var(--accent-light); background: var(--accent-glow); border-color: rgba(59,130,246,0.3); }
+.nav__theme svg { width: 20px; height: 20px; }
+
+.nav__actions { display: flex; align-items: center; gap: 10px; }
 .nav__cta { padding: 9px 24px; font-size: 0.82rem; }
 
 .nav__burger {
@@ -69,6 +83,6 @@
 .nav__mobile a { font-size: 1.2rem; font-weight: 600; color: var(--text); }
 
 @media (max-width: 768px) {
-  .nav__links, .nav__cta { display: none; }
+  .nav__links, .nav__actions { display: none; }
   .nav__burger { display: flex; }
 }

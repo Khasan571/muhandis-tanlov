@@ -1,12 +1,5 @@
 /* Timeline — horizontal step cards */
-.tl { position: relative; overflow: hidden; background: #ffffff !important; background-image: none !important; }
-.tl .sec-label { color: var(--accent); }
-.tl .sec-heading { color: #0f172a; }
-.tl .sec-text { color: #64748b; }
-.tl .glass {
-  background: #060B18;
-  border-color: rgba(255,255,255,0.08);
-}
+.tl { position: relative; overflow: hidden; }
 .tl__bg-glow {
   position: absolute;
   width: 500px; height: 500px;

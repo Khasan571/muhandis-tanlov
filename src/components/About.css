@@ -1,12 +1,4 @@
 /* About — feature cards + stats panel */
-.about { background: #ffffff !important; background-image: none !important; }
-.about .sec-label { color: var(--accent); }
-.about .sec-heading { color: #0f172a; }
-.about .sec-text { color: #64748b; }
-.about .glass {
-  background: #060B18;
-  border-color: rgba(255,255,255,0.08);
-}
 .about__top { margin-bottom: 56px; }
 
 .about__cards {

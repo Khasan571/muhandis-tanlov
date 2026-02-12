@@ -32,7 +32,7 @@ const steps = [
 
 export default function Timeline() {
   return (
-    <section className="tl sec sec-dark" id="timeline">
+    <section className="tl sec sec-darker" id="timeline">
       {/* Subtle glow */}
       <div className="tl__bg-glow" />
       <div className="container">

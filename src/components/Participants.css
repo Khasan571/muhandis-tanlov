@@ -1,0 +1,168 @@
+/* =============================================
+   Participants — Tech-framed image cards
+   ============================================= */
+
+.participants__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.participants__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.participants__card {
+  background: rgba(12, 20, 40, 0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+}
+.participants__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(6,182,212,0.12);
+}
+
+/* Tech frame around image */
+.participants__frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  aspect-ratio: 4 / 3;
+}
+
+/* Corner brackets */
+.participants__frame::before,
+.participants__frame::after,
+.participants__corner-bl,
+.participants__corner-br {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+.participants__frame::before {
+  top: 8px; left: 8px;
+  border-top: 2px solid #06B6D4;
+  border-left: 2px solid #06B6D4;
+}
+.participants__frame::after {
+  top: 8px; right: 8px;
+  border-top: 2px solid #06B6D4;
+  border-right: 2px solid #06B6D4;
+}
+.participants__corner-bl {
+  bottom: 8px; left: 8px;
+  border-bottom: 2px solid #06B6D4;
+  border-left: 2px solid #06B6D4;
+}
+.participants__corner-br {
+  bottom: 8px; right: 8px;
+  border-bottom: 2px solid #06B6D4;
+  border-right: 2px solid #06B6D4;
+}
+
+/* Hover: corners glow */
+.participants__card:hover .participants__frame::before,
+.participants__card:hover .participants__frame::after,
+.participants__card:hover .participants__corner-bl,
+.participants__card:hover .participants__corner-br {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 0 6px rgba(6,182,212,0.5));
+}
+
+/* Video */
+.participants__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  background: #0c1a35;
+}
+.participants__card:hover .participants__video {
+  transform: scale(1.05);
+}
+
+/* Scan line effect on frame */
+.participants__scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #06B6D4, transparent);
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.participants__card:hover .participants__scanline {
+  opacity: 0.7;
+  animation: scanMove 2s ease-in-out infinite;
+}
+@keyframes scanMove {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+/* Title */
+.participants__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #06B6D4;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.participants__desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* =============================================
+   Light mode
+   ============================================= */
+[data-theme="light"] .participants__card {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .participants__card:hover {
+  box-shadow: 0 20px 60px rgba(6,182,212,0.1);
+}
+[data-theme="light"] .participants__desc {
+  color: #475569;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 1024px) {
+  .participants__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .participants__card {
+    padding: 18px;
+  }
+  .participants__title {
+    font-size: 1rem;
+  }
+}
