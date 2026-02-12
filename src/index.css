@@ -246,8 +246,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ---- Hero light ---- */
-[data-theme="light"] .hero2 { background: #f8fafc; }
-[data-theme="light"] .hero2__title-top { color: #0f172a; }
+[data-theme="light"] .hero2 { background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 30%, #f0f9ff 60%, #f5f3ff 100%); }
+[data-theme="light"] .hero2::before { opacity: 0; }
+[data-theme="light"] .hero2__mesh-blob { opacity: 0.3; }
+[data-theme="light"] .hero2__circuit {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+[data-theme="light"] .hero2__circuit::before,
+[data-theme="light"] .hero2__circuit::after { opacity: 0.15; }
+[data-theme="light"] .hero2__scanline { opacity: 0.05; }
+[data-theme="light"] .hero2__node { background: rgba(59,130,246,0.3); box-shadow: 0 0 6px rgba(59,130,246,0.2); }
+[data-theme="light"] .hero2__title-top { color: #0f172a; text-shadow: none; }
 [data-theme="light"] .hero2__title-bot { color: #64748b; }
 [data-theme="light"] .hero2__desc { color: #475569; }
 [data-theme="light"] .hero2__btn-sec {
@@ -256,15 +267,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-theme="light"] .hero2__btn-sec:hover {
   border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.06);
 }
-[data-theme="light"] .hero2__stat-num { color: #0f172a; }
+[data-theme="light"] .hero2__stat-num { color: #0f172a; text-shadow: none; }
 [data-theme="light"] .hero2__stat-label { color: #64748b; }
 [data-theme="light"] .hero2__stat-divider {
   background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent);
 }
-[data-theme="light"] .hero2__grid {
-  background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+[data-theme="light"] .hero2__hud-corner { border-color: rgba(59,130,246,0.2); }
+[data-theme="light"] .hero2__orbit-center {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.2);
 }
 [data-theme="light"] .hero2__orb {
   background: rgba(255,255,255,0.8); border-color: rgba(0,0,0,0.08);
@@ -280,7 +291,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-theme="light"] .hero2__fade {
   background: linear-gradient(to bottom, transparent, var(--bg-primary));
 }
-[data-theme="light"] .hero2__mesh-blob { opacity: 0.3; }
 
 /* ---- Navbar light ---- */
 [data-theme="light"] .nav--scrolled {

@@ -5,15 +5,30 @@ export default function Hero() {
 
   return (
     <section className="hero2" id="hero">
-      {/* Geometric mesh background */}
-      <div className="hero2__mesh" aria-hidden="true">
+      {/* Background layers */}
+      <div className="hero2__bg" aria-hidden="true">
         <div className="hero2__mesh-blob hero2__mesh-blob--1" />
         <div className="hero2__mesh-blob hero2__mesh-blob--2" />
         <div className="hero2__mesh-blob hero2__mesh-blob--3" />
       </div>
 
-      {/* Grid overlay */}
-      <div className="hero2__grid" aria-hidden="true" />
+      {/* Circuit grid */}
+      <div className="hero2__circuit" aria-hidden="true" />
+
+      {/* Horizontal scan line */}
+      <div className="hero2__scanline" aria-hidden="true" />
+
+      {/* Floating tech nodes */}
+      <div className="hero2__nodes" aria-hidden="true">
+        <div className="hero2__node hero2__node--1" />
+        <div className="hero2__node hero2__node--2" />
+        <div className="hero2__node hero2__node--3" />
+        <div className="hero2__node hero2__node--4" />
+        <div className="hero2__node hero2__node--5" />
+        <div className="hero2__node hero2__node--6" />
+        <div className="hero2__node hero2__node--7" />
+        <div className="hero2__node hero2__node--8" />
+      </div>
 
       <div className="container hero2__layout">
         {/* LEFT — Text */}
@@ -30,7 +45,8 @@ export default function Hero() {
           </p>
 
           <div className="hero2__actions">
-            <a href="#timeline" onClick={(e) => go(e, '#timeline')} className="hero2__btn-main">
+            <a href="#directions" onClick={(e) => go(e, '#directions')} className="hero2__btn-main">
+              <span className="hero2__btn-pulse" />
               Ariza yuborish
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
             </a>
@@ -61,6 +77,12 @@ export default function Hero() {
 
         {/* RIGHT — Orbital icons */}
         <div className="hero2__visual">
+          {/* HUD corners */}
+          <div className="hero2__hud-corner hero2__hud-corner--tl" />
+          <div className="hero2__hud-corner hero2__hud-corner--tr" />
+          <div className="hero2__hud-corner hero2__hud-corner--bl" />
+          <div className="hero2__hud-corner hero2__hud-corner--br" />
+
           {/* Center icon */}
           <div className="hero2__orbit-center">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -114,14 +136,6 @@ export default function Hero() {
           <div className="hero2__ring hero2__ring--1" />
           <div className="hero2__ring hero2__ring--2" />
           <div className="hero2__ring hero2__ring--3" />
-
-          {/* Floating particles */}
-          <div className="hero2__particle hero2__particle--1" />
-          <div className="hero2__particle hero2__particle--2" />
-          <div className="hero2__particle hero2__particle--3" />
-          <div className="hero2__particle hero2__particle--4" />
-          <div className="hero2__particle hero2__particle--5" />
-          <div className="hero2__particle hero2__particle--6" />
         </div>
       </div>
 
